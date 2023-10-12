@@ -34,21 +34,12 @@ get_name_in_email([None, 'abb#ccc'])                      | ['ERROR invaid email
 #region bailam
 
 def get_name_in_email(email_list):
+    r_all = []
+    for email in email_list:
+        if email is None or '@' not in email:
+            r_all.append('ERROR invaid email')
+        else:
+            r_all.append(email.split('@')[0])
+    return r_all
 
-  def hople(email):
-    #TODO use regex
-    if not email:    return False
-    if '@' in email: return True
-    return False
-
-  r_all=[]
-  for e in email_list:
-    if not hople(e):
-      r_all.append('ERROR invaid email')
-      continue
-
-    u = e.split('@')[0]
-    r_all.append(u)
-
-  return r_all
 #endregion bailam
